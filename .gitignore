@@ -1,0 +1,24 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+dist/
+*.spec
+
+# Log and settings
+*.txt
+config.json
+
+# copied files folder
+file_copies/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# VS Code
+.vscode/
