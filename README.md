@@ -4,7 +4,7 @@
 
 ### Configure file paths
 
-If it's the first time you run the program, this will be the first thing you will be confronted with. It will ask you for the file paths of OpenTabletDriver, StreamCompanion, KeyOverlay and OBS. **IMPORTANT**: These have to be the **shortcuts** of the programs, not the actual `.exe` themselves. Also, just provide the raw file address, not with the `""` around it. These quotation marks will automatically be added to the path if you copy them from your file explorer.
+If it's the first time you run the program, this will be the first thing you will be confronted with. It will ask you for the file paths of OpenTabletDriver, StreamCompanion, KeyOverlay and OBS. **IMPORTANT**: These have to be the **shortcuts** of the programs, not the actual `.exe` themselves. Also, just provide the raw file address, not with the `""` around it. These quotation marks will automatically be added to the path if you copy them from your file explorer. If you don't have one of the apps that it asks you to add, or you simply don't want to add them in the program, just leave the field empty and press Enter.
 
 If you want to change these paths (maybe because you've moved the shortcuts), you can simply go into the `config.json` that has been made in the same directory as the `.exe` and change the file paths.
 
@@ -23,7 +23,7 @@ Example:
 
 ### Start Stream Tools
 
-This will try to start all the applications you provided in the configuration. It will also tell you what application it's trying to start up, so you can keep track of what's happening. If you didn't
+This will try to start all the applications you provided in the configuration. It will also tell you what application it's trying to start up, so you can keep track of what's happening.
 
 ### Close Stream Tools
 
