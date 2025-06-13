@@ -7,7 +7,6 @@ import subprocess
 from datetime import datetime
 
 process_names = ['osu!StreamCompanion.exe', 'KeyOverlay.exe', 'OpenTabletDriver.UX.Wpf.exe', 'obs64.exe']
-applications = []
 
 log_file = r'log.txt'
 CONFIG_FILE = r'config.json'
@@ -30,10 +29,14 @@ def create_settings_file():
 
     with open(CONFIG_FILE, 'w') as config_file:
         json.dump(config, config_file, indent=4)
-
+    
 def load_config():
     with open(CONFIG_FILE, 'r') as settings:
-        return json.load(settings)
+        config = json.load(settings)
+
+    global applications
+    applications = [value for key, value in config.items() if value]
+    log("Loaded settings~~")
 
 def create_clean_log_file():
     with open(log_file, 'w') as log:
@@ -44,12 +47,12 @@ def log(message):
     with open(log_file, 'a') as log:
         log.write(f'{datetime.now()} --- {message}\n')
 
-def copy_files(file, destination, amount):
-    src = file
+def copy_files(source, destination, amount):
+    src = source
     dest = destination
 
     log(f'Copying files {amount} times...')
-    for i in range(amount):
+    for i in range(amount + 1):
         shutil.copy(src, dest + f"-{i}.png")
     log('Copied files')
 
@@ -63,11 +66,7 @@ def run_stream_tools():
     
     log('Stream tools running.')
 
-def close_stream_tools():
-    if not process_names:
-        log('There are no stream tools running: aborting.')
-        return
-    
+def close_stream_tools():    
     for process in psutil.process_iter(['name']):
         try:
             if process.info['name'] in process_names:
@@ -76,29 +75,23 @@ def close_stream_tools():
                 process.wait(timeout=1)
 
         except (psutil.NoSuchProcess, psutil.AccessDenied):
-            log(f"[Error: Couldn't close process. {process.info['name']} is either not running or access has been denied.")
+            log(f"[Error: Couldn't close process. {process.info['name']} is either not running or access has been denied. Aborting further operations.")
+            return
     
     log('Closed all processes')
-
 
 
 def main():
     # create or clean log file for new session
     create_clean_log_file()
-    print('Script running~~')
+    log('Script running~~')
 
     if is_first_time_run():
         print("First time setup")
         create_settings_file()
 
-    config = load_config()
-    applications.append(config['OpenTabletDriver'])
-    applications.append(config['StreamCompanion'])
-    applications.append(config['KeyOverlay'])
-    applications.append(config['OBS'])
-    log("Loaded settings~~")
+    load_config()
             
-
     run = True
     while run:
         print("1. Copy files")
