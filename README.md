@@ -10,16 +10,15 @@ If you want to change these paths (maybe because you've moved the shortcuts), yo
 
 ### Copy files
 
-If you choose for this option, the program will ask you for the **full** path to the file you want to copy (1). After that, it will ask you to enter the **full** path and the base name of the copied file (2). After also providing the amount of copies you want (3), it will generate copied files with the base name + 0 up until the requested amount is reached (4).
+If you choose for this option, the program will ask you for the **full** path to the file you want to copy (1). After that, it will ask you to enter the **full** path and the **base name** of the copied file (2). With this version, you can now choose what file type you're copying as well (3). After providing the app how many copies you want (4), it will generate copies of the file for the amount you requested. If you only wanted one file, the copied file's name should be the same as your original file.
 
 Example:
 
 1. `C:\Users\User\Documents\file.png`
 2. `C:\Users\User\Documents\copied_files\base_name`
-3. 100
-4. `C:\Users\User\Documents\copied_files\base_name-0.png` all the way to `C:\Users\User\Documents\copied_files\base_name-100.png`
-
-#### Notice: This only works for png's right now, I will maybe make a menu for selecting the filetype or maybe even providing the filetype yourself.
+3. `png`
+4. 100
+5. `C:\Users\User\Documents\copied_files\base_name-0.png` all the way to `C:\Users\User\Documents\copied_files\base_name-99.png`
 
 ### Start Stream Tools
 
