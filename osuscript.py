@@ -35,7 +35,7 @@ def load_config():
         config = json.load(settings)
 
     global applications
-    applications = [value for key, value in config.items() if value]
+    applications = [value for value in config.values() if value]
     log("Loaded settings~~")
 
 def create_clean_log_file():
@@ -47,13 +47,19 @@ def log(message):
     with open(log_file, 'a') as log:
         log.write(f'{datetime.now()} --- {message}\n')
 
-def copy_files(source, destination, amount):
+def copy_files(source, destination, amount, file_type):
     src = source
     dest = destination
+    
+    if amount == 1:
+        log(f'Copying file...')
+        shutil.copy(src, dest + f".{file_type}")
+        log(f'Copied file')
+        return
 
     log(f'Copying files {amount} times...')
-    for i in range(amount + 1):
-        shutil.copy(src, dest + f"-{i}.png")
+    for i in range(amount):
+        shutil.copy(src, dest + f"-{i}.{file_type}")
     log('Copied files')
 
 def run_stream_tools():
@@ -107,9 +113,10 @@ def main():
         elif choice == 1:
             src = input("File that needs to be copied [Full path]\n")
             dest = input("Location & file base name [Full path]\n")
+            file_type = input("What type of file do you want to copy? (txt, png, jpg,...)\n")
             amount = int(input("Amount of copies\n"))
 
-            copy_files(src, dest, amount)
+            copy_files(src, dest, amount, file_type)
             time.sleep(2)
 
         elif choice == 2:
