@@ -20,6 +20,34 @@ def main():
         print("0. Quit\n")
         choice = int(input("What operation do you want to do?\n"))
 
+        match choice:
+            case 0:
+                log('Quitting script~~')
+                run = False
+                break
+            case 1:
+                src = input("File that needs to be copied [Full path]\n")
+                dest = input("Location & file base name [Full path]\n")
+                file_type = input("What type of file do you want to copy? (txt, png, jpg,...)\n")
+                amount = int(input("Amount of copies\n"))
+
+                copy_files(src, dest, amount, file_type)
+                time.sleep(2)
+                break
+            case 2:
+                run_stream_tools()
+                time.sleep(2)
+                break
+            case 3:
+                close_stream_tools()
+                time.sleep(2)
+            case _:
+                print('Invalid choice.')
+                time.sleep(2)
+            
+
+                
+
         if choice == 0:
             log('Quitting script~~')
             run = False

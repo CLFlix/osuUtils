@@ -14,13 +14,13 @@ def copy_files(source, destination, amount, file_type):
     
     if amount == 1:
         log(f'Copying file...')
-        shutil.copy(src, dest + f".{file_type}")
+        shutil.copy(src, f"{dest}.{file_type}")
         log(f'Copied file')
         return
 
     log(f'Copying files {amount} times...')
     for i in range(amount):
-        shutil.copy(src, dest + f"-{i}.{file_type}")
+        shutil.copy(src, f"{dest}-{i}.{file_type}")
     log('Copied files')
 
 def run_stream_tools():
