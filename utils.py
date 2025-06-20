@@ -35,8 +35,16 @@ def create_settings_file():
 
 def load_config():
     with open(CONFIG_FILE, 'r') as settings:
+        global config
         config = json.load(settings)
 
     global applications
     applications = [value for value in config.values() if value]
     log("Loaded settings~~")
+
+def show_config():
+    result = ""
+    for app, path, in config.items():
+        result += f'{app}: {path}\n'
+    
+    return result
