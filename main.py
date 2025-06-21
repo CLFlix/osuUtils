@@ -32,13 +32,11 @@ def main():
                     src = input("File that needs to be copied [Full path]\n")
                     dest = input("Location & file base name [Full path]\n")
                     file_type = input("What type of file do you want to copy? (txt, png, jpg,...)\n")
-                    try:
-                        amount = int(input("Amount of copies\n"))
-                        copy_files(src, dest, amount, file_type)
-                        time.sleep(2)
-                    except ValueError:
-                        log("Invalid input, please enter a number.")
-                        time.sleep(1)
+                    amount = int(input("Amount of copies\n"))
+                    copy_files(src, dest, amount, file_type)
+                    time.sleep(2)
+                    log("Invalid input, please enter a number.")
+                    time.sleep(1)
 
                 case 2:
                     run_stream_tools()
