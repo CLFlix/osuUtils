@@ -42,9 +42,3 @@ def load_config():
     applications = [value for value in config.values() if value]
     log("Loaded settings~~")
 
-def show_config():
-    result = ""
-    for app, path, in config.items():
-        result += f'{app}: {path}\n'
-    
-    return result

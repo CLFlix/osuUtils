@@ -7,18 +7,20 @@ def main():
     log('Script running~~')
 
     if is_first_time_run():
-        print("First time setup")
+        log("First time setup")
         create_settings_file()
 
     load_config()
     
     run = True
     while run:
+        print("----------------------------------------")
         print("1. Copy files")
         print("2. Run osu!stream tools")
         print("3. Close osu!stream tools")
         print("4. Show file paths for osu!stream tools")
-        print("0. Quit\n")
+        print("0. Quit")
+        print("----------------------------------------")
     
         try:
             choice = int(input("What operation do you want to do?\n"))
@@ -30,10 +32,14 @@ def main():
                     src = input("File that needs to be copied [Full path]\n")
                     dest = input("Location & file base name [Full path]\n")
                     file_type = input("What type of file do you want to copy? (txt, png, jpg,...)\n")
-                    amount = int(input("Amount of copies\n"))
+                    try:
+                        amount = int(input("Amount of copies\n"))
+                        copy_files(src, dest, amount, file_type)
+                        time.sleep(2)
+                    except ValueError:
+                        log("Invalid input, please enter a number.")
+                        time.sleep(1)
 
-                    copy_files(src, dest, amount, file_type)
-                    time.sleep(2)
                 case 2:
                     run_stream_tools()
                     time.sleep(2)

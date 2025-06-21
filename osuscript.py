@@ -46,3 +46,10 @@ def close_stream_tools():
             return
     
     log('Closed all processes')
+
+def show_config():
+    result = ""
+    for app, path, in utils.config.items():
+        result += f'{app}: {path}\n'
+    
+    return result
