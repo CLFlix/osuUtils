@@ -22,12 +22,14 @@ def create_settings_file():
     stream_companion = input("What is the full path to the StreamCompanion shortcut? Leave open if you don't have this.\n")
     key_overlay = input("What is the full path to the KeyOverlay shortcut? Leave open if you don't have this.\n")
     obs = input("What is the full path to the OBS shortcut? Leave open if you don't have this.\n")
+    osuTwitchBot = input("What is the full path to the osuTwitchBot shortcut? Leave open if you don't have this.\n")
 
     config = {
         "OpenTabletDriver": open_tablet_driver,
         "StreamCompanion": stream_companion,
         "KeyOverlay": key_overlay,
-        "OBS": obs
+        "OBS": obs,
+        "osuTwitchBot": osuTwitchBot
     }
 
     with open(CONFIG_FILE, 'w') as config_file:

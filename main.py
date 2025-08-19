@@ -16,9 +16,9 @@ def main():
     while run:
         print("----------------------------------------")
         print("1. Copy files")
-        print("2. Run osu!stream tools")
-        print("3. Close osu!stream tools")
-        print("4. Show file paths for osu!stream tools")
+        print("2. Run osu! stream tools")
+        print("3. Close osu! stream tools")
+        print("4. Show config")
         print("0. Quit")
         print("----------------------------------------")
     
@@ -46,7 +46,7 @@ def main():
                     time.sleep(2)
                 case 4:
                     print(show_config())
-                    print("Settings will be visible for 5 seconds.")
+                    print("Config will be visible for 5 seconds.")
                     time.sleep(5)
                 case _:
                     print('Invalid choice.')

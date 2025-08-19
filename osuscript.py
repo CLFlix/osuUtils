@@ -6,7 +6,7 @@ import subprocess
 import utils
 from utils import log
 
-process_names = ['osu!StreamCompanion.exe', 'KeyOverlay.exe', 'OpenTabletDriver.UX.Wpf.exe', 'obs64.exe']
+process_names = ['osu!StreamCompanion.exe', 'KeyOverlay.exe', 'OpenTabletDriver.UX.Wpf.exe', 'obs64.exe', 'osuTwitchBot.exe']
 
 def copy_files(source, destination, amount, file_type):
     src = source
